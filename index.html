@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Calculator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        Number 1
+        <input type="text" id="N1" required><br><br>
+        Number 2
+        <input type="text" id="N2" required>
+        <br><br>
+        Operation 
+        <select id="operation" onchange="getAnswer()">
+            <option value="sum">Addition</option>
+            <option value="subtract">Subtraction</option>
+            <option value="multiply">Multiply</option>
+            <option value="division">Division</option>
+        </select><br><br>
+        Answer
+        <input type="text" id="ans" readonly/>
+        
+        <script src="Calculator.js"></script>
+        <script>
+            function getAnswer(){
+                let operation = document.getElementById('operation');
+                let Number1 = document.getElementById('N1').value;
+                let Number2 = document.getElementById('N2').value;
+
+                document.getElementById('ans').value = Calculator[operation.value](Number1,Number2);
+            }
+        </script>
+    </body>
+</html>
